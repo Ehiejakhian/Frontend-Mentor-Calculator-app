@@ -1,17 +1,26 @@
-
-@use './util' as *;
+@use "./util" as *;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'outfit';
+  font-family: "outfit";
 }
 
 body {
-  
+  min-height: 100dvh;
+  @include df(center, center, column, 10px);
 }
 
 main {
+  border: 1px solid;
+}
 
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  
+  a {
+   color: hsl(228, 45%, 44%);
+ }
 }

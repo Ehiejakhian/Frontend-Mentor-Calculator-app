@@ -3,28 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Calculator app</title>
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-
   <main>
-    <header>
+    <div class="header">
       <h2>calc</h2>
-    </header>
-    <div class="display"></div>
-    <div class="keyboard"></div>
+      <div class="theme">
+        <label for="range-input">theme</label>
+        <div class="theme__input">
+          <p class="steps">
+            <span>1</span><span>2</span><span>3</span>
+          </p>
+          <input type="range" name="range" id="range-input" max="2">
+        </div>
+      </div>
+    </div>
+    <input type="text" name="number-input" id="number-input" class="number__input"/>
+    <div class="keyboard">
+      <span class="1">1</span><span class="2">2</span><span class="3">3</span><span class="4">4</span><span class="5">5</span><span class="6">6</span><span class="7">7</span><span class="8">8</span><span class="9">9</span><span class="0">10</span><span class="plus">11</span><span class="minus">12</span><span class="multi">13</span><span class="divide">14</span><span class="point">15</span><span class="reset">16</span><span class="equal-to">17</span><span class="delete">18</span>
+    </div>
   </main>
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://ehiejakhian.github.io/">Ehi Ejakhian</a>.
   </div>
+
+  <script src="./script.js"></script>
 </body>
 </html>
