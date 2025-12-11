@@ -7,6 +7,40 @@ $(document).ready(function(){
     changeTheme(e.target.value);
     //console.log($('html')[0].classList)
   })
+
+  let screen = $('#number-input');
+  screen.on('keydown', function(e){
+    console.log(e.key);
+    numbers.forEach(key=>{
+      console.log
+      if (key.textContent == e.key) {
+        key.classList.add('pressed');
+        setTimeout(()=>{
+          key.classList.remove('pressed');
+        },100)
+      } else if (e.key == 'Enter' && key.textContent == '=') {
+        key.classList.add('pressed');
+        setTimeout(()=>{
+          key.classList.remove('pressed');
+        },100)
+      } else if (e.key == 'Backspace' && key.textContent == 'del') {
+        key.classList.add('pressed');
+        setTimeout(()=>{
+          key.classList.remove('pressed');
+        },100)
+      } else if (e.key == '*' && key.textContent == '×') {
+        key.classList.add('pressed');
+        setTimeout(()=>{
+          key.classList.remove('pressed');
+        },100)
+      } else if (e.key == 'Escape' && key.textContent == 'reset') {
+        key.classList.add('pressed');
+        setTimeout(()=>{
+          key.classList.remove('pressed');
+        },100)
+      }
+    })
+  })
 })
 
 /* Change theme based on user input */

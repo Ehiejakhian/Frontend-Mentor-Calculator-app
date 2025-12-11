@@ -1,6 +1,6 @@
 @font-face {
   font-family: "League Spartan";
-  src: url("./font/League-Spartan-Variable.ttf");
+  src: url("../fonts/LeagueSpartan-VariableFont_wght.ttf");
 }
 :root {
   --font-size-num: 32px;
@@ -55,7 +55,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "outfit";
+  font-family: "league Spartan";
   font-weight: 700;
 }
 
@@ -184,6 +184,9 @@ main {
   font-weight: 700;
   color: var(--key-color);
   border-bottom: 5px solid var(--key-shadow);
+}
+.keyboard > *.pressed {
+  transform: scale(1.05);
 }
 .keyboard > *:hover {
   transform: scale(1.05);
