@@ -68,12 +68,11 @@ body {
   justify-content: center;
   align-items: center;
   flex-flow: column;
-  gap: 0;
+  gap: 10px;
 }
 
 main {
   background-color: inherit;
-  margin: auto;
   display: flex;
   justify-content: normal;
   align-items: normal;
@@ -86,7 +85,7 @@ main {
   justify-content: space-between;
   align-items: center;
   flex-flow: row;
-  gap: 50px;
+  gap: 10px;
 }
 .header h1 {
   color: var(--heading-color);
@@ -147,16 +146,19 @@ main {
 
 .number__input {
   color: var(--heading-color);
-  display: block;
-  width: 100%;
   font-size: 3rem;
   background-color: var(--screen-bg);
   border: none;
   border-radius: 10px;
-  padding: 20px;
   text-align: right;
   outline: none;
   font-weight: 700;
+  padding: 20px;
+}
+@media (min-width: 750px) {
+  .number__input {
+    padding: 30px;
+  }
 }
 .number__input::-webkit-inner-spin-button {
   display: none;
@@ -165,11 +167,18 @@ main {
 .keyboard {
   background-color: var(--keypad-bg);
   border-radius: 10px;
-  padding: 20px;
   display: grid;
+  grid-template-columns: repeat(4, minmax(30px, 100px));
   grid-template-areas: "seven eight nine del" "four five six plus" "one two three minus" "point zero slash times" "reset reset equal equal";
+  padding: 25px;
   gap: 15px;
   text-transform: uppercase;
+}
+@media (min-width: 750px) {
+  .keyboard {
+    padding: 30px;
+    gap: 25px;
+  }
 }
 .keyboard > * {
   display: flex;
@@ -180,7 +189,7 @@ main {
   border-radius: 10px;
   padding: 20px;
   background-color: var(--key-bg);
-  font-size: 32px;
+  font-size: clamp(32px, 5dvw, 2.5rem);
   font-weight: 700;
   color: var(--key-color);
   border-bottom: 5px solid var(--key-shadow);
@@ -238,17 +247,14 @@ main {
   color: var(--del-key-color);
   background-color: var(--del-key-bg);
   border-color: var(--del-key-shadow);
-  font-size: 18px;
 }
 .keyboard .reset {
-  font-size: 18px;
   grid-area: reset;
   color: var(--del-key-color);
   background-color: var(--del-key-bg);
   border-color: var(--del-key-shadow);
 }
 .keyboard .equal-to {
-  font-size: 18px;
   grid-area: equal;
   color: var(--equal-key-color);
   background-color: var(--equal-key-bg);
