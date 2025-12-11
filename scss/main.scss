@@ -5,22 +5,187 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "outfit";
+  font-weight: 700;
 }
 
 body {
+  transition: background-color .3s;
   min-height: 100dvh;
-  @include df(center, center, column, 10px);
+  background-color: var(--main-bg);
+  padding: 25px;
+  @include df(center, center, column, 0);
 }
 
 main {
-  border: 1px solid;
+  background-color: inherit;
+  margin: auto;
+  @include df(normal, normal, column, 20px);
+}
+
+.header {
+  @include df(space-between, center, row, 50px);
+  h1 {
+    color: var(--heading-color);
+  }
+  .theme {
+    @include df(space-between, center, row, 25px);
+    label {
+      text-transform: uppercase;
+      color: var(--heading-color);
+      font-size: 13px;
+      font-weight: 700;
+      transform: translateY(50%);
+    }
+    &__input {
+      @include df(normal, normal, column, 5px);
+      .steps {
+        @include df(space-between, center, row, 10px);
+        color: var(--heading-color);
+        font-size: 13px;
+        font-weight: 700;
+        &:first-of-type {
+          margin-left: 10px;
+        }
+        &:last-of-type {
+          margin-right: 10px;
+        }
+      }
+      #range-input {
+        appearance: none;
+        width: 80px;
+        height: 30px;
+        outline: none;
+        background-color: var(--keypad-bg);
+        border-radius: 50px;
+        &::-webkit-slider-thumb {
+          appearance: none;
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          border: 5px solid var(--keypad-bg);
+          background-color: var(--equal-key-bg);
+          // transition: all .3s;
+        }
+      }
+    }
+  }
+}
+
+.number__input {
+  color: var(--heading-color);
+  display: block;
+  width: 100%;
+  font-size: 3rem;
+  background-color: var(--screen-bg);
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: right;
+  outline: none;
+  font-weight: 700;
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+}
+
+.keyboard {
+  background-color: var(--keypad-bg);
+  border-radius: 10px;
+  padding: 20px;
+  display: grid;
+  grid-template-areas: 
+    "seven eight nine del"
+    "four five six plus"
+    "one two three minus"
+    "point zero slash times"
+    "reset reset equal equal";
+  gap: 15px;
+  text-transform: uppercase;
+  >* {
+    @include df(center, center);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--key-bg);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--key-color);
+    border-bottom: 5px solid var(--key-shadow);
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  .one {
+    grid-area: one;
+  }
+  .two {
+    grid-area: two;
+  }
+  .three {
+    grid-area: three;
+  }
+  .four {
+    grid-area: four;
+  }
+  .five {
+    grid-area: five;
+  }
+  .six {
+    grid-area: six;
+  }
+  .seven {
+    grid-area: seven;
+  }
+  .eight {
+    grid-area: eight;
+  }
+  .nine {
+    grid-area: nine;
+  }
+  .zero {
+    grid-area: zero;
+  }
+  .plus {
+    grid-area: plus;
+  }
+  .minus {
+    grid-area: minus;
+  }
+  .multi {
+    grid-area: times;
+  }
+  .divide {
+    grid-area: slash;
+  }
+  .delete {
+    grid-area: del;
+    color: var(--del-key-color);
+    background-color: var(--del-key-bg);
+    border-color: var(--del-key-shadow);
+    font-size: 18px;
+  }
+  .reset {
+    font-size: 18px;
+    grid-area: reset;
+    color:  var(--del-key-color);
+    background-color: var(--del-key-bg);
+    border-color: var(--del-key-shadow);
+  }
+  .equal-to {
+    font-size: 18px;
+    grid-area: equal;
+    color: var(--equal-key-color);
+    background-color: var(--equal-key-bg);
+    border-color: var(--equal-key-shadow);
+  }
 }
 
 .attribution {
+  color: #fff;
   font-size: 11px;
   text-align: center;
-  
   a {
-   color: hsl(228, 45%, 44%);
+   color: var(--keypad-bg);
+   text-decoration: none;
+   border-bottom: 2px solid;
  }
 }

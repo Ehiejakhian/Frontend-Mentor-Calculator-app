@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +10,20 @@
 <body>
   <main>
     <div class="header">
-      <h2>calc</h2>
+      <h1>calc</h1>
       <div class="theme">
         <label for="range-input">theme</label>
         <div class="theme__input">
           <p class="steps">
             <span>1</span><span>2</span><span>3</span>
           </p>
-          <input type="range" name="range" id="range-input" max="2">
+          <input type="range" name="range" id="range-input" max="2" value="0"/>
         </div>
       </div>
     </div>
-    <input type="text" name="number-input" id="number-input" class="number__input"/>
+    <input type="text" inputmode="none" name="number-input" id="number-input" class="number__input" placeholder="000000" value="0" onblur="this.focus()" autofocus/>
     <div class="keyboard">
-      <span class="1">1</span><span class="2">2</span><span class="3">3</span><span class="4">4</span><span class="5">5</span><span class="6">6</span><span class="7">7</span><span class="8">8</span><span class="9">9</span><span class="0">10</span><span class="plus">11</span><span class="minus">12</span><span class="multi">13</span><span class="divide">14</span><span class="point">15</span><span class="reset">16</span><span class="equal-to">17</span><span class="delete">18</span>
+      <span class="key one">1</span><span class="key two">2</span><span class="key three">3</span><span class="key four">4</span><span class="key five">5</span><span class="key six">6</span><span class="key seven">7</span><span class="key eight">8</span><span class="key nine">9</span><span class="key zero">0</span><span class="key plus">+</span><span class="key minus">-</span><span class="key multi">×</span><span class="key divide">/</span><span class="key point">.</span><span class="key reset">reset</span><span class="key equal-to">=</span><span class="key delete">del</span>
     </div>
   </main>
   
@@ -32,6 +32,9 @@
     Coded by <a href="https://ehiejakhian.github.io/">Ehi Ejakhian</a>.
   </div>
 
-  <script src="./script.js"></script>
+  <script src="./scripts/main.js" defer></script>
+
+  <script src="./scripts/jquery-3.7.1.js"></script>
+  <script src="./scripts/theme_and_animations.js"></script>
 </body>
 </html>

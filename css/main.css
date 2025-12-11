@@ -1,0 +1,264 @@
+@font-face {
+  font-family: "League Spartan";
+  src: url("./font/League-Spartan-Variable.ttf");
+}
+:root {
+  --font-size-num: 32px;
+}
+:root.theme1 {
+  --main-bg: hsl(222, 26%, 31%);
+  --keypad-bg: hsl(223, 31%, 20%);
+  --screen-bg: hsl(224, 36%, 15%);
+  --del-key-bg: hsl(225, 21%, 49%);
+  --del-key-shadow: hsl(224, 28%, 35%);
+  --equal-key-bg: hsl(6, 63%, 50%);
+  --equal-key-shadow: hsl(6, 70%, 34%);
+  --key-bg: hsl(0, 0%, 90%);
+  --key-shadow: hsl(28, 16%, 65%);
+  --heading-color: #fff;
+  --key-color: hsl(221, 14%, 31%);
+  --equal-key-color: hsl(0, 100%, 100%);
+  --del-key-color: hsl(0, 100%, 100%);
+}
+:root.theme2 {
+  --main-bg: hsl(0, 0%, 90%);
+  --keypad-bg: hsl(0, 5%, 81%);
+  --screen-bg: hsl(0, 0%, 93%);
+  --del-key-bg: hsl(185, 42%, 37%);
+  --del-key-shadow: hsl(185, 58%, 25%);
+  --equal-key-bg: hsl(25, 98%, 40%);
+  --equal-key-shadow: hsl(25, 99%, 27%);
+  --key-bg: hsl(0, 0%, 90%);
+  --key-shadow: hsl(35, 11%, 61%);
+  --heading-color: hsl(60, 10%, 19%);
+  --key-color: var(--heading-color);
+  --equal-key-color: hsl(0, 100%, 100%);
+  --del-key-color: hsl(0, 100%, 100%);
+}
+:root.theme3 {
+  --main-bg: hsl(268, 75%, 9%);
+  --keypad-bg: hsl(268, 71%, 12%);
+  --screen-bg: var(var(--keyboard-bg));
+  --del-key-bg: hsl(281, 89%, 26%);
+  --del-key-shadow: hsl(285, 91%, 52%);
+  --equal-key-bg: hsl(176, 100%, 44%);
+  --equal-key-shadow: hsl(177, 92%, 70%);
+  --key-bg: hsl(268, 47%, 21%);
+  --key-shadow: hsl(290, 70%, 36%);
+  --heading-color: hsl(52, 100%, 62%);
+  --key-color: var(--heading-color);
+  --equal-key-color: hsl(198, 20%, 13%);
+  --del-key-color: hsl(0, 100%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "outfit";
+  font-weight: 700;
+}
+
+body {
+  transition: background-color 0.3s;
+  min-height: 100dvh;
+  background-color: var(--main-bg);
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 0;
+}
+
+main {
+  background-color: inherit;
+  margin: auto;
+  display: flex;
+  justify-content: normal;
+  align-items: normal;
+  flex-flow: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row;
+  gap: 50px;
+}
+.header h1 {
+  color: var(--heading-color);
+}
+.header .theme {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row;
+  gap: 25px;
+}
+.header .theme label {
+  text-transform: uppercase;
+  color: var(--heading-color);
+  font-size: 13px;
+  font-weight: 700;
+  transform: translateY(50%);
+}
+.header .theme__input {
+  display: flex;
+  justify-content: normal;
+  align-items: normal;
+  flex-flow: column;
+  gap: 5px;
+}
+.header .theme__input .steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row;
+  gap: 10px;
+  color: var(--heading-color);
+  font-size: 13px;
+  font-weight: 700;
+}
+.header .theme__input .steps:first-of-type {
+  margin-left: 10px;
+}
+.header .theme__input .steps:last-of-type {
+  margin-right: 10px;
+}
+.header .theme__input #range-input {
+  appearance: none;
+  width: 80px;
+  height: 30px;
+  outline: none;
+  background-color: var(--keypad-bg);
+  border-radius: 50px;
+}
+.header .theme__input #range-input::-webkit-slider-thumb {
+  appearance: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 5px solid var(--keypad-bg);
+  background-color: var(--equal-key-bg);
+}
+
+.number__input {
+  color: var(--heading-color);
+  display: block;
+  width: 100%;
+  font-size: 3rem;
+  background-color: var(--screen-bg);
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: right;
+  outline: none;
+  font-weight: 700;
+}
+.number__input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.keyboard {
+  background-color: var(--keypad-bg);
+  border-radius: 10px;
+  padding: 20px;
+  display: grid;
+  grid-template-areas: "seven eight nine del" "four five six plus" "one two three minus" "point zero slash times" "reset reset equal equal";
+  gap: 15px;
+  text-transform: uppercase;
+}
+.keyboard > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  gap: 0;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: var(--key-bg);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--key-color);
+  border-bottom: 5px solid var(--key-shadow);
+}
+.keyboard > *:hover {
+  transform: scale(1.05);
+}
+.keyboard .one {
+  grid-area: one;
+}
+.keyboard .two {
+  grid-area: two;
+}
+.keyboard .three {
+  grid-area: three;
+}
+.keyboard .four {
+  grid-area: four;
+}
+.keyboard .five {
+  grid-area: five;
+}
+.keyboard .six {
+  grid-area: six;
+}
+.keyboard .seven {
+  grid-area: seven;
+}
+.keyboard .eight {
+  grid-area: eight;
+}
+.keyboard .nine {
+  grid-area: nine;
+}
+.keyboard .zero {
+  grid-area: zero;
+}
+.keyboard .plus {
+  grid-area: plus;
+}
+.keyboard .minus {
+  grid-area: minus;
+}
+.keyboard .multi {
+  grid-area: times;
+}
+.keyboard .divide {
+  grid-area: slash;
+}
+.keyboard .delete {
+  grid-area: del;
+  color: var(--del-key-color);
+  background-color: var(--del-key-bg);
+  border-color: var(--del-key-shadow);
+  font-size: 18px;
+}
+.keyboard .reset {
+  font-size: 18px;
+  grid-area: reset;
+  color: var(--del-key-color);
+  background-color: var(--del-key-bg);
+  border-color: var(--del-key-shadow);
+}
+.keyboard .equal-to {
+  font-size: 18px;
+  grid-area: equal;
+  color: var(--equal-key-color);
+  background-color: var(--equal-key-bg);
+  border-color: var(--equal-key-shadow);
+}
+
+.attribution {
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: var(--keypad-bg);
+  text-decoration: none;
+  border-bottom: 2px solid;
+}/*# sourceMappingURL=main.css.map */
