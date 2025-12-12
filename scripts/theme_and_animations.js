@@ -3,7 +3,7 @@
 $(document).ready(function(){
   changeTheme(0)
   let $themeSwitch = $('#range-input');
-  $themeSwitch.on("input",function(e){
+  $themeSwitch.on('input change',function(e){
     changeTheme(e.target.value);
     //console.log($('html')[0].classList)
   })
