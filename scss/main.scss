@@ -17,6 +17,7 @@ body {
 }
 
 main {
+  max-width: 95dvw;
   background-color: inherit;
   @include df(normal, normal, column, 20px);
 }
