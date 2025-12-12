@@ -5,7 +5,6 @@ $(document).ready(function(){
   let $themeSwitch = $('#range-input');
   $themeSwitch.on('input change',function(e){
     changeTheme(e.target.value);
-    alert('Theme changed to theme' + e.target.value);
     //console.log($('html')[0].classList)
   })
 
